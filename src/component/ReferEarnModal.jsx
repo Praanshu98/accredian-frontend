@@ -43,9 +43,14 @@ const ReferEarnModal = ({ onClose }) => {
     }
     setErrors({});
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     try {
       // Adjust the URL if your backend is hosted separately
-      const response = await axios.post("/api/referrals", formData);
+      const response = await axios.post(
+        backendUrl + "/api/referrals",
+        formData,
+      );
       if (response.status === 200) {
         setSuccessMessage("Referral submitted successfully!");
         setFormData({
