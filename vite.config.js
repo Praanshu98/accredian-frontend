@@ -5,9 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
-    "/api": {
-      target: "http://localhost:3000",
-      changeOrigin: true,
+    proxy: {
+      "/api": {
+        target: "https://accredian-backend-rdo4.onrender.com",
+        changeOrigin: true,
+      },
     },
   },
 });

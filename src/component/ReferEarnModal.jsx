@@ -45,10 +45,7 @@ const ReferEarnModal = ({ onClose }) => {
 
     try {
       // Adjust the URL if your backend is hosted separately
-      const response = await fetch("/api/referrals", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await axios.post("/api/referrals", formData);
       if (response.status === 200) {
         setSuccessMessage("Referral submitted successfully!");
         setFormData({
